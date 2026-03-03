@@ -28,6 +28,42 @@ body {
   margin: 0 auto;
 }
 
+/* ── BACK BUTTON ── */
+.back-bar {
+  background: var(--black);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(250,250,245,0.6);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: rgba(201,168,76,0.08);
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+.back-btn:hover {
+  background: rgba(201,168,76,0.18);
+  border-color: rgba(201,168,76,0.5);
+  color: var(--gold-light);
+  transform: translateX(-2px);
+}
+.back-btn svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
 /* ===== COVER ===== */
 .cover {
   background: var(--black);
@@ -100,7 +136,7 @@ body {
 
 .cover-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(52px, 10vw, 80px);
+  font-size: clamp(44px, 10vw, 80px);
   font-weight: 900;
   line-height: 0.95;
   color: var(--white);
@@ -150,6 +186,7 @@ body {
   align-items: flex-end;
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 24px;
+  gap: 20px;
 }
 
 .cover-toc { display: flex; flex-direction: column; gap: 6px; }
@@ -172,6 +209,7 @@ body {
   font-size: 10px;
   color: rgba(250,250,245,0.25);
   text-align: right;
+  flex-shrink: 0;
 }
 
 /* ===== INTRO ===== */
@@ -204,7 +242,7 @@ body {
 
 .intro-heading {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 42px);
+  font-size: clamp(26px, 5vw, 42px);
   font-weight: 700;
   line-height: 1.2;
   color: var(--black);
@@ -253,7 +291,7 @@ body {
 
 .fiche-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 7vw, 58px);
+  font-size: clamp(32px, 7vw, 58px);
   font-weight: 900;
   line-height: 1;
   color: var(--white);
@@ -509,7 +547,7 @@ body {
   line-height: 1.6;
 }
 
-/* Bio anatomy diagram */
+/* Bio anatomy */
 .bio-anatomy {
   background: white;
   border: 1px solid rgba(0,0,0,0.08);
@@ -550,10 +588,7 @@ body {
   border-right: 1px solid rgba(0,0,0,0.06);
 }
 
-.bio-line-content {
-  padding: 14px 16px;
-  flex: 1;
-}
+.bio-line-content { padding: 14px 16px; flex: 1; }
 
 .bio-line-label {
   font-size: 11px;
@@ -564,18 +599,8 @@ body {
   margin-bottom: 4px;
 }
 
-.bio-line-desc {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.5;
-}
-
-.bio-line-example {
-  font-size: 12px;
-  color: #888;
-  font-style: italic;
-  margin-top: 4px;
-}
+.bio-line-desc { font-size: 13px; color: #555; line-height: 1.5; }
+.bio-line-example { font-size: 12px; color: #888; font-style: italic; margin-top: 4px; }
 
 /* Before/After */
 .before-after {
@@ -588,18 +613,10 @@ body {
 .before-card, .after-card {
   border-radius: 8px;
   padding: 20px;
-  overflow: hidden;
 }
 
-.before-card {
-  background: #fef2f2;
-  border-top: 3px solid #ef4444;
-}
-
-.after-card {
-  background: #f0fdf4;
-  border-top: 3px solid #22c55e;
-}
+.before-card { background: #fef2f2; border-top: 3px solid #ef4444; }
+.after-card  { background: #f0fdf4; border-top: 3px solid #22c55e; }
 
 .ba-label {
   font-size: 10px;
@@ -610,14 +627,9 @@ body {
 }
 
 .before-card .ba-label { color: #ef4444; }
-.after-card .ba-label { color: #22c55e; }
+.after-card  .ba-label { color: #22c55e; }
 
-.ba-text {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #444;
-  font-style: italic;
-}
+.ba-text { font-size: 13px; line-height: 1.6; color: #444; font-style: italic; }
 
 /* Checklist */
 .checklist {
@@ -649,20 +661,14 @@ body {
 .check-item:last-child { border-bottom: none; }
 
 .check-box {
-  width: 20px;
-  height: 20px;
+  width: 20px; height: 20px;
   border: 2px solid var(--gold);
   border-radius: 4px;
   flex-shrink: 0;
   margin-top: 1px;
 }
 
-.check-text {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #3D3028;
-}
-
+.check-text { font-size: 14px; line-height: 1.6; color: #3D3028; }
 .check-text strong { font-weight: 600; color: var(--black); }
 
 /* Big stat */
@@ -685,11 +691,62 @@ body {
   flex-shrink: 0;
 }
 
-.big-stat-text {
-  font-size: 15px;
+.big-stat-text { font-size: 15px; font-weight: 600; color: var(--black); line-height: 1.5; }
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  border-top: 3px solid var(--gold);
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.stat-desc { font-size: 13px; color: #555; margin-top: 8px; line-height: 1.5; }
+
+/* Mots bannis */
+.banned-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.banned-word {
+  background: #fef2f2;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #ef4444;
   font-weight: 600;
-  color: var(--black);
-  line-height: 1.5;
+}
+
+/* Comparatif */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.compare-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
 }
 
 /* Closing */
@@ -724,7 +781,7 @@ body {
 
 .closing-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 7vw, 56px);
+  font-size: clamp(32px, 7vw, 56px);
   font-weight: 900;
   line-height: 1.1;
   color: var(--white);
@@ -745,6 +802,52 @@ body {
   z-index: 1;
 }
 
+/* ── CLOSING CTA ── */
+.closing-cta-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.closing-cta-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(250,250,245,0.35);
+}
+
+.closing-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.closing-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+}
+
+.closing-cta-btn svg {
+  width: 16px; height: 16px;
+  stroke: var(--black);
+  flex-shrink: 0;
+}
+
 .closing-brand {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
@@ -754,11 +857,7 @@ body {
   z-index: 1;
 }
 
-.page-break {
-  height: 2px;
-  background: var(--gold);
-}
-
+.page-break { height: 2px; background: var(--gold); }
 .divider { height: 1px; background: rgba(0,0,0,0.08); margin: 40px 0; }
 
 .tip-box {
@@ -778,22 +877,44 @@ body {
   margin-bottom: 8px;
 }
 
-.tip-text {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.7;
-  font-style: italic;
-}
+.tip-text { font-size: 14px; color: #555; line-height: 1.7; font-style: italic; }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-  .cover, .fiche-header, .fiche-content, .intro-page, .closing-page { padding-left: 24px; padding-right: 24px; }
-  .platform-body { padding: 20px; }
-  .before-after { grid-template-columns: 1fr; }
-  .big-stat { flex-direction: column; text-align: center; }
+  .cover, .fiche-header, .fiche-content,
+  .intro-page, .closing-page, .back-bar { padding-left: 20px; padding-right: 20px; }
+
+  .cover { padding-top: 36px; padding-bottom: 36px; }
+  .cover-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .cover-version { text-align: left; }
+
+  .platform-body { padding: 16px 20px; }
+
+  .before-after  { grid-template-columns: 1fr; }
+  .stats-grid    { grid-template-columns: 1fr; }
+  .banned-grid   { grid-template-columns: 1fr; }
+  .compare-grid  { grid-template-columns: 1fr; }
+
+  .big-stat { flex-direction: column; text-align: center; gap: 12px; }
+  .big-stat-num { font-size: 48px; }
+
+  .fiche-bg-num { font-size: 120px; }
+
+  .closing-cta-btn { padding: 14px 24px; font-size: 14px; }
+
+  .step-block { flex-direction: column; gap: 12px; }
 }
 </style>
 </head>
 <body>
+
+<!-- ── BACK BAR ── -->
+<div class="back-bar">
+  <a href="https://kcoaching02.github.io/BAP_SOUS-MENU-LES-BASES/" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Retour aux Bases
+  </a>
+</div>
 
 <!-- ===== COVER ===== -->
 <div class="cover">
@@ -801,13 +922,12 @@ body {
     <div class="cover-brand">Brille & Vibre</div>
     <div class="cover-tag">Fiche Mémo</div>
   </div>
-
   <div class="cover-middle">
     <div class="cover-eyebrow">Instagram & TikTok — Positionnement</div>
     <div class="cover-title">
       La <span>Bio</span><br>
       qui <em>attire</em><br>
-      <span class="outline">& convertit</span>
+      <span class="outline">&amp; convertit</span>
     </div>
     <div class="cover-subtitle">
       Tout ce que tu dois savoir pour transformer ta bio en machine à attirer les bonnes personnes — et les pousser à passer à l'action.
@@ -820,7 +940,6 @@ body {
       <div class="pill">Erreurs</div>
     </div>
   </div>
-
   <div class="cover-bottom">
     <div class="cover-toc">
       <div class="cover-toc-item"><span class="num">01</span> Pourquoi ta bio est ton actif #1</div>
@@ -838,9 +957,7 @@ body {
 <div class="intro-page">
   <div class="intro-label">Pourquoi cette fiche mémo</div>
   <div class="intro-heading">
-    Ta bio, c'est la première<br>
-    chose qu'on lit.<br>
-    Et souvent la <em>dernière</em>.
+    Ta bio, c'est la première<br>chose qu'on lit.<br>Et souvent la <em>dernière</em>.
   </div>
   <div class="intro-body">
     <p>Une personne inconnue atterrit sur ton profil. Elle regarde ta photo. Elle lit ta bio. Et en moins de <strong>3 secondes</strong>, elle décide si elle reste ou si elle part.</p>
@@ -857,29 +974,22 @@ body {
   <div class="fiche-bg-num">01</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 01 — Fondamentaux</div>
-    <div class="fiche-title">
-      Pourquoi ta bio<br>
-      est ton actif <em>#1</em>
-    </div>
-    <div class="fiche-citation">
-      « Ta bio ne doit pas te décrire. Elle doit décrire ce que tu changes dans la vie de quelqu'un. »
-    </div>
+    <div class="fiche-title">Pourquoi ta bio<br>est ton actif <em>#1</em></div>
+    <div class="fiche-citation">« Ta bio ne doit pas te décrire. Elle doit décrire ce que tu changes dans la vie de quelqu'un. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="big-stat">
     <div class="big-stat-num">3s</div>
     <div class="big-stat-text">C'est le temps que prend un visiteur pour décider s'il reste ou s'il part. Ta bio est le seul endroit qui parle à 100% des visiteurs de ton profil — même ceux qui ne voient jamais ton contenu.</div>
   </div>
 
   <div class="section-title">La bio, c'est quoi vraiment</div>
-
   <div class="body-text">La bio n'est pas une carte de visite. Ce n'est pas un résumé de qui tu es. <strong>C'est une proposition de valeur.</strong> Une phrase de vente déguisée. Un filtre qui attire les bonnes personnes et repousse les mauvaises.</div>
-  <div class="body-text" style="margin-top: 14px;">Une bonne bio fait trois choses en simultané :</div>
+  <div class="body-text" style="margin-top:14px">Une bonne bio fait trois choses en simultané :</div>
 
-  <div class="step-block" style="margin-top: 16px;">
+  <div class="step-block" style="margin-top:16px">
     <div class="step-num">01</div>
     <div class="step-content">
       <div class="step-title-s">Elle identifie</div>
@@ -904,26 +1014,23 @@ body {
   </div>
 
   <div class="section-title">Le rôle de la bio dans ton funnel</div>
-
   <div class="body-text">Ton contenu amène des gens sur ton profil. Ta bio les convertit en abonnés. Tes abonnés deviennent des clients. <strong>Casser ce lien à l'étape bio, c'est saboter tout le reste.</strong></div>
 
   <div class="callout">
     Tu peux avoir les meilleurs reels du monde. Si ta bio ne répond pas à la question "pourquoi je devrais te suivre ?"… les gens partent. Sans un mot.
   </div>
 
-  <div class="section-title">Ce que les chiffres disent</div>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;">
-    <div style="background: white; border-radius: 8px; padding: 20px; border-top: 3px solid var(--gold); text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--gold);">67%</div>
-      <div style="font-size: 13px; color: #555; margin-top: 8px; line-height: 1.5;">des visites de profil durent moins de 8 secondes avant de rebondir</div>
+  <div class="section-title">Ce que l'expérience terrain montre</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">3s</div>
+      <div class="stat-desc">La majorité des visites de profil durent moins de 8 secondes avant de rebondir</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 20px; border-top: 3px solid var(--gold); text-align: center;">
-      <div style="font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--gold);">2×</div>
-      <div style="font-size: 13px; color: #555; margin-top: 8px; line-height: 1.5;">plus de chances de convertir un visiteur avec une bio qui parle directement à sa douleur</div>
+    <div class="stat-card">
+      <div class="stat-num">2×</div>
+      <div class="stat-desc">Plus de chances de convertir un visiteur avec une bio qui parle directement à sa douleur</div>
     </div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -933,25 +1040,18 @@ body {
   <div class="fiche-bg-num">02</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 02 — Structure</div>
-    <div class="fiche-title">
-      L'anatomie d'une<br>
-      bio <em>parfaite</em>
-    </div>
-    <div class="fiche-citation">
-      « Chaque ligne de ta bio a un rôle précis. Aucune ne doit être là par hasard. »
-    </div>
+    <div class="fiche-title">L'anatomie d'une<br>bio <em>parfaite</em></div>
+    <div class="fiche-citation">« Chaque ligne de ta bio a un rôle précis. Aucune ne doit être là par hasard. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="body-text">Une bio impactante n'est pas un bloc de texte. C'est une structure pensée ligne par ligne, avec une intention derrière chaque mot.</div>
 
   <div class="section-title">Les 4 lignes qui font tout</div>
 
   <div class="bio-anatomy">
     <div class="bio-anatomy-header">Structure — Ligne par ligne</div>
-
     <div class="bio-line">
       <div class="bio-line-num">L.1</div>
       <div class="bio-line-content">
@@ -960,30 +1060,27 @@ body {
         <div class="bio-line-example">❌ "Sophie Martin" → ✅ "Sophie | Aide les femmes à vendre sans se montrer"</div>
       </div>
     </div>
-
     <div class="bio-line">
       <div class="bio-line-num">L.2</div>
       <div class="bio-line-content">
         <div class="bio-line-label">La preuve / la crédibilité</div>
-        <div class="bio-line-desc">Un résultat concret, un chiffre, une transformation. Pas un titre générique. Quelque chose qui prouve que ça marche.</div>
+        <div class="bio-line-desc">Un résultat concret, un chiffre, une transformation. Pas un titre générique.</div>
         <div class="bio-line-example">❌ "Coach certifiée" → ✅ "+300 clientes ont lancé leur business en 90 jours"</div>
       </div>
     </div>
-
     <div class="bio-line">
       <div class="bio-line-num">L.3</div>
       <div class="bio-line-content">
         <div class="bio-line-label">L'élément de connexion</div>
-        <div class="bio-line-desc">Ce qui te rend humaine, relatable, différente. Un détail personnel ou un point commun avec ton audience. C'est ce qui crée le lien.</div>
+        <div class="bio-line-desc">Ce qui te rend humaine, relatable, différente. Un détail personnel ou un point commun avec ton audience.</div>
         <div class="bio-line-example">✅ "Maman de 2 👦🏽 | Ancienne salariée reconvertie en 6 mois"</div>
       </div>
     </div>
-
     <div class="bio-line">
       <div class="bio-line-num">L.4</div>
       <div class="bio-line-content">
         <div class="bio-line-label">Le CTA — Appel à l'action</div>
-        <div class="bio-line-desc">Une seule action. Claire. Directe. Pas trois liens, pas "lien en bio". <strong>Dis exactement quoi faire et pourquoi.</strong></div>
+        <div class="bio-line-desc">Une seule action. Claire. Directe. <strong>Dis exactement quoi faire et pourquoi.</strong></div>
         <div class="bio-line-example">✅ "👇 Télécharge ta checklist gratuite" ou "📩 DM-moi le mot DÉMARRER"</div>
       </div>
     </div>
@@ -993,21 +1090,20 @@ body {
 
   <div class="levier">
     <div class="levier-title">Les mots-clés</div>
-    <div class="levier-text">Instagram et TikTok indexent les bios. Les bons mots-clés dans ta bio te rendent <strong>trouvable par des inconnus</strong> qui cherchent ce que tu proposes. Utilise les termes que ton avatar tape dans la barre de recherche — pas du jargon de ta niche.</div>
+    <div class="levier-text">Instagram et TikTok indexent les bios. Les bons mots-clés dans ta bio te rendent <strong>trouvable par des inconnus</strong>. Utilise les termes que ton avatar tape dans la barre de recherche — pas du jargon de ta niche.</div>
   </div>
 
   <div class="levier">
     <div class="levier-title">Les emojis (avec parcimonie)</div>
-    <div class="levier-text">Les emojis servent de <strong>séparateurs visuels</strong> et attirent l'œil. Maximum 1 par ligne. Choisis-les en cohérence avec ton univers. Un emoji mal choisi brise l'image premium que tu veux projeter.</div>
+    <div class="levier-text">Les emojis servent de <strong>séparateurs visuels</strong>. Maximum 1 par ligne. Un emoji mal choisi brise l'image premium que tu veux projeter.</div>
   </div>
 
   <div class="levier">
     <div class="levier-title">Le nom d'utilisateur et le nom de compte</div>
-    <div class="levier-text">Le <strong>champ "Nom"</strong> (en gras sur ton profil) est indexé par la recherche. Mets-y ton prénom + un mot-clé de ta niche. Ex : <em>"Layla • Business en ligne"</em>. C'est différent de ton @username.</div>
+    <div class="levier-text">Le <strong>champ "Nom"</strong> (en gras sur ton profil) est indexé par la recherche. Ex : <em>"Layla • Business en ligne"</em>.</div>
   </div>
 
   <div class="section-title">Exemple : avant / après</div>
-
   <div class="before-after">
     <div class="before-card">
       <div class="ba-label">✗ Bio qui ne convertit pas</div>
@@ -1021,9 +1117,8 @@ body {
 
   <div class="tip-box">
     <div class="tip-label">💡 Le test des 5 secondes</div>
-    <div class="tip-text">Montre ta bio à quelqu'un qui ne te connaît pas. En 5 secondes, il doit pouvoir répondre à : À qui parles-tu ? Quel problème tu règles ? Que faire ensuite ? Si ce n'est pas limpide — réécris.</div>
+    <div class="tip-text">Montre ta bio à quelqu'un qui ne te connaît pas. En 5 secondes, il doit pouvoir répondre : À qui parles-tu ? Quel problème tu règles ? Que faire ensuite ? Si ce n'est pas limpide — réécris.</div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1033,65 +1128,54 @@ body {
   <div class="fiche-bg-num">03</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 03 — Règles</div>
-    <div class="fiche-title">
-      Les règles<br>
-      <em>absolues</em>
-    </div>
-    <div class="fiche-citation">
-      « Une bio qui essaie de plaire à tout le monde ne touche personne. Sois précise, ou sois invisible. »
-    </div>
+    <div class="fiche-title">Les règles<br><em>absolues</em></div>
+    <div class="fiche-citation">« Une bio qui essaie de plaire à tout le monde ne touche personne. Sois précise, ou sois invisible. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
-  <div class="callout-gold">
-    Ces règles ne sont pas des suggestions. Ce sont les piliers d'une bio qui travaille pour toi 24h/24, même quand tu ne postes pas.
-  </div>
+  <div class="callout-gold">Ces règles ne sont pas des suggestions. Ce sont les piliers d'une bio qui travaille pour toi 24h/24, même quand tu ne postes pas.</div>
 
   <div class="levier">
     <div class="levier-title">Règle 01 — Parle à UNE seule personne</div>
-    <div class="levier-text">Ta bio doit sembler écrite spécifiquement pour quelqu'un. Pas pour "les femmes", pas pour "les entrepreneurs". Pour <strong>une femme de 32 ans qui veut quitter son CDI et ne sait pas par où commencer</strong>. Plus c'est précis, plus ça résonne.</div>
+    <div class="levier-text">Ta bio doit sembler écrite spécifiquement pour quelqu'un. Plus c'est précis, plus ça résonne.</div>
   </div>
 
   <div class="levier">
     <div class="levier-title">Règle 02 — Promesse de résultat, pas de méthode</div>
-    <div class="levier-text">Les gens n'achètent pas une formation. Ils achètent une transformation. Ne dis pas "je t'apprends le marketing digital". Dis <strong>"je t'aide à faire tes premières ventes sans audience"</strong>. Le résultat avant tout.</div>
+    <div class="levier-text">Les gens n'achètent pas une formation. Ils achètent une transformation. <strong>Le résultat avant tout.</strong></div>
   </div>
 
   <div class="levier">
     <div class="levier-title">Règle 03 — Un seul appel à l'action</div>
-    <div class="levier-text">Deux CTA = zéro CTA. Le cerveau humain a horreur de choisir. Donne une seule direction. Le lien en bio, c'est pour une seule chose à la fois. Si tu as plusieurs offres, utilise une page de liens (Linktree, Stan Store...) mais avec <strong>un CTA principal mis en avant.</strong></div>
+    <div class="levier-text">Deux CTA = zéro CTA. Le cerveau humain a horreur de choisir. Donne une seule direction.</div>
   </div>
 
   <div class="levier">
     <div class="levier-title">Règle 04 — Langage simple, direct, humain</div>
-    <div class="levier-text">Bannis les mots vides : "passionnée", "inspirante", "bienveillante", "authenticité". Ces mots ne veulent rien dire pour quelqu'un qui ne te connaît pas encore. Utilise le <strong>vocabulaire de ton avatar</strong> — les mots qu'il utilise lui-même pour décrire son problème.</div>
+    <div class="levier-text">Bannis les mots vides. Utilise le <strong>vocabulaire de ton avatar</strong> — les mots qu'il utilise lui-même pour décrire son problème.</div>
   </div>
 
   <div class="levier">
     <div class="levier-title">Règle 05 — Teste et itère</div>
-    <div class="levier-text">Ta bio n'est pas gravée dans le marbre. <strong>Change-la, observe l'impact sur tes abonnements, recommence.</strong> Les meilleures bios sont celles qui ont été testées 5, 10, 20 fois. Traite ta bio comme un post : tu testes, tu analyses, tu optimises.</div>
+    <div class="levier-text">Ta bio n'est pas gravée dans le marbre. <strong>Change-la, observe l'impact, recommence.</strong></div>
   </div>
 
   <div class="callout">
-    Ta bio n'est jamais "finie".<br><br>
-    Elle évolue avec ton offre, ton positionnement, ton audience. Révise-la au minimum une fois par mois — ou à chaque fois que tu lances quelque chose de nouveau.
+    Ta bio n'est jamais "finie".<br><br>Elle évolue avec ton offre, ton positionnement, ton audience. Révise-la au minimum une fois par mois.
   </div>
 
   <div class="section-title">Les mots à bannir définitivement</div>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0;">
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Passionnée</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Bienveillante</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Inspirante</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Authenticité</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Partage ma vie</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Pour en savoir plus</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Vis ta meilleure vie</div>
-    <div style="background: #fef2f2; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #ef4444; font-weight: 600;">❌ Entrepreneur(e)</div>
+  <div class="banned-grid">
+    <div class="banned-word">❌ Passionnée</div>
+    <div class="banned-word">❌ Bienveillante</div>
+    <div class="banned-word">❌ Inspirante</div>
+    <div class="banned-word">❌ Authenticité</div>
+    <div class="banned-word">❌ Partage ma vie</div>
+    <div class="banned-word">❌ Pour en savoir plus</div>
+    <div class="banned-word">❌ Vis ta meilleure vie</div>
+    <div class="banned-word">❌ Entrepreneur(e)</div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1101,89 +1185,74 @@ body {
   <div class="fiche-bg-num">04</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 04 — Plateformes</div>
-    <div class="fiche-title">
-      Instagram<br>
-      vs <em>TikTok</em><br>
-      <span class="outline-w">les nuances</span>
-    </div>
-    <div class="fiche-citation">
-      « La même bio sur deux plateformes différentes, c'est comme porter le même costume à la plage et en soirée. »
-    </div>
+    <div class="fiche-title">Instagram<br>vs <em>TikTok</em><br><span class="outline-w">les nuances</span></div>
+    <div class="fiche-citation">« La même bio sur deux plateformes différentes, c'est comme porter le même costume à la plage et en soirée. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="body-text">Les deux plateformes ont des cultures, des algorithmes et des audiences différentes. Ta bio doit s'adapter — le fond reste le même, la forme change.</div>
 
-  <!-- Instagram -->
   <div class="platform-card">
     <div class="platform-header">
       <div>
         <div class="platform-num">Plateforme 01</div>
         <div class="platform-name">Instagram</div>
       </div>
-      <div style="font-size: 28px;">📸</div>
+      <div style="font-size:28px">📸</div>
     </div>
     <div class="platform-body">
       <div class="platform-section-label">Les règles techniques</div>
-      <ul class="arrow-list" style="margin: 0;">
-        <li style="color: rgba(250,250,245,0.6);"><strong style="color: rgba(250,250,245,0.85);">150 caractères maximum</strong> — chaque mot compte</li>
-        <li style="color: rgba(250,250,245,0.6);">Le champ <strong style="color: rgba(250,250,245,0.85);">"Nom"</strong> (en gras) est indexé par la recherche — utilise-le stratégiquement</li>
-        <li style="color: rgba(250,250,245,0.6);">1 seul lien cliquable — rends-le irrésistible</li>
-        <li style="color: rgba(250,250,245,0.6);">Les hashtags en bio ne servent à rien en 2025 — évite-les</li>
+      <ul class="arrow-list" style="margin:0">
+        <li style="color:rgba(250,250,245,0.6)"><strong style="color:rgba(250,250,245,0.85)">150 caractères maximum</strong> — chaque mot compte</li>
+        <li style="color:rgba(250,250,245,0.6)">Le champ <strong style="color:rgba(250,250,245,0.85)">"Nom"</strong> est indexé — utilise-le stratégiquement</li>
+        <li style="color:rgba(250,250,245,0.6)">1 seul lien cliquable — rends-le irrésistible</li>
+        <li style="color:rgba(250,250,245,0.6)">Les hashtags en bio ne servent à rien en 2025</li>
       </ul>
       <div class="platform-section-label">Le ton et le style</div>
-      <div class="platform-text">Instagram est une plateforme plus <strong style="color: rgba(250,250,245,0.85);">aspirationnelle</strong>. Les utilisateurs viennent chercher de l'inspiration, du lifestyle, des résultats. Ta bio peut être un peu plus premium, plus posée.</div>
-      <div class="platform-insight">
-        La structure idéale sur Instagram : Qui tu aides + Résultat que tu promets + Preuve de crédibilité + CTA avec emoji flèche vers le lien.
-      </div>
+      <div class="platform-text">Instagram est une plateforme plus <strong style="color:rgba(250,250,245,0.85)">aspirationnelle</strong>. Ta bio peut être plus premium, plus posée.</div>
+      <div class="platform-insight">La structure idéale : Qui tu aides + Résultat que tu promets + Preuve de crédibilité + CTA avec emoji flèche.</div>
       <div class="platform-section-label">Ce qui performe en 2025</div>
-      <ul class="arrow-list" style="margin: 0;">
-        <li style="color: rgba(250,250,245,0.6);">Commencer par "J'aide [cible] à [résultat]"</li>
-        <li style="color: rgba(250,250,245,0.6);">Un chiffre de résultat concret (ex : "+500 clientes")</li>
-        <li style="color: rgba(250,250,245,0.6);">Un CTA DM avec mot-clé ("envoie-moi START")</li>
+      <ul class="arrow-list" style="margin:0">
+        <li style="color:rgba(250,250,245,0.6)">Commencer par "J'aide [cible] à [résultat]"</li>
+        <li style="color:rgba(250,250,245,0.6)">Un chiffre de résultat concret</li>
+        <li style="color:rgba(250,250,245,0.6)">Un CTA DM avec mot-clé</li>
       </ul>
     </div>
   </div>
 
-  <!-- TikTok -->
   <div class="platform-card">
     <div class="platform-header">
       <div>
         <div class="platform-num">Plateforme 02</div>
         <div class="platform-name">TikTok</div>
       </div>
-      <div style="font-size: 28px;">🎵</div>
+      <div style="font-size:28px">🎵</div>
     </div>
     <div class="platform-body">
       <div class="platform-section-label">Les règles techniques</div>
-      <ul class="arrow-list" style="margin: 0;">
-        <li style="color: rgba(250,250,245,0.6);"><strong style="color: rgba(250,250,245,0.85);">80 caractères maximum</strong> affichés sans "voir plus" — sois ultra-concise</li>
-        <li style="color: rgba(250,250,245,0.6);">Le lien dans la bio n'est accessible <strong style="color: rgba(250,250,245,0.85);">qu'à partir de 1 000 abonnés</strong></li>
-        <li style="color: rgba(250,250,245,0.6);">Avant 1K abonnés : redirige vers Instagram via le CTA</li>
-        <li style="color: rgba(250,250,245,0.6);">TikTok indexe aussi le nom de compte dans sa recherche</li>
+      <ul class="arrow-list" style="margin:0">
+        <li style="color:rgba(250,250,245,0.6)"><strong style="color:rgba(250,250,245,0.85)">80 caractères maximum</strong> affichés sans "voir plus"</li>
+        <li style="color:rgba(250,250,245,0.6)">Le lien bio n'est accessible <strong style="color:rgba(250,250,245,0.85)">qu'à partir de 1 000 abonnés</strong></li>
+        <li style="color:rgba(250,250,245,0.6)">Avant 1K : redirige vers Instagram via le CTA</li>
       </ul>
       <div class="platform-section-label">Le ton et le style</div>
-      <div class="platform-text">TikTok est une plateforme de <strong style="color: rgba(250,250,245,0.85);">divertissement et d'authenticité</strong>. L'audience est plus jeune, plus directe, moins sensible au prestige. Ta bio peut être plus cash, plus punchy, même légèrement décalée.</div>
-      <div class="platform-insight">
-        La structure idéale sur TikTok : Résultat en une phrase + Élément relatable ou décalé + CTA ultra-court ("🔗 reçois le guide gratuit").
-      </div>
+      <div class="platform-text">TikTok est une plateforme d'<strong style="color:rgba(250,250,245,0.85)">authenticité</strong>. Ta bio peut être plus cash, plus punchy, même légèrement décalée.</div>
+      <div class="platform-insight">La structure idéale : Résultat en une phrase + Élément relatable + CTA ultra-court.</div>
       <div class="platform-section-label">Ce qui performe en 2025</div>
-      <ul class="arrow-list" style="margin: 0;">
-        <li style="color: rgba(250,250,245,0.6);">Commencer par le résultat, direct, sans fioritures</li>
-        <li style="color: rgba(250,250,245,0.6);">Un élément d'humour ou d'autodérision (ça humanise)</li>
-        <li style="color: rgba(250,250,245,0.6);">CTA vers Instagram si pas encore de lien bio activé</li>
+      <ul class="arrow-list" style="margin:0">
+        <li style="color:rgba(250,250,245,0.6)">Commencer par le résultat, direct</li>
+        <li style="color:rgba(250,250,245,0.6)">Un élément d'humour ou d'autodérision</li>
+        <li style="color:rgba(250,250,245,0.6)">CTA vers Instagram si pas encore de lien bio</li>
       </ul>
     </div>
   </div>
 
   <div class="section-title">Le comparatif en un coup d'œil</div>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;">
-    <div style="background: white; border-radius: 8px; padding: 20px; border-top: 3px solid #E1306C;">
-      <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #E1306C; margin-bottom: 12px;">Instagram</div>
-      <ul class="arrow-list" style="margin: 0;">
+  <div class="compare-grid">
+    <div class="compare-card" style="border-top:3px solid #E1306C">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#E1306C;margin-bottom:12px">Instagram</div>
+      <ul class="arrow-list" style="margin:0">
         <li>150 caractères</li>
         <li>Ton aspirationnel</li>
         <li>Champ Nom indexé</li>
@@ -1191,9 +1260,9 @@ body {
         <li>Structure en 4 lignes</li>
       </ul>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 20px; border-top: 3px solid #010101;">
-      <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #010101; margin-bottom: 12px;">TikTok</div>
-      <ul class="arrow-list" style="margin: 0;">
+    <div class="compare-card" style="border-top:3px solid #010101">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#010101;margin-bottom:12px">TikTok</div>
+      <ul class="arrow-list" style="margin:0">
         <li>80 chars visibles</li>
         <li>Ton direct / cash</li>
         <li>Nom de compte indexé</li>
@@ -1202,7 +1271,6 @@ body {
       </ul>
     </div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1212,24 +1280,17 @@ body {
   <div class="fiche-bg-num">05</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 05 — Erreurs</div>
-    <div class="fiche-title">
-      Les <em>7 erreurs</em><br>
-      qui tuent<br>
-      <span class="outline-w">ta bio</span>
-    </div>
-    <div class="fiche-citation">
-      « La plupart des bios ne convertissent pas parce qu'elles parlent de toi — au lieu de parler à ton audience. »
-    </div>
+    <div class="fiche-title">Les <em>7 erreurs</em><br>qui tuent<br><span class="outline-w">ta bio</span></div>
+    <div class="fiche-citation">« La plupart des bios ne convertissent pas parce qu'elles parlent de toi — au lieu de parler à ton audience. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="step-block">
     <div class="step-num">E.01</div>
     <div class="step-content">
       <div class="step-title-s">Parler de toi au lieu de ton audience</div>
-      <div class="step-body">"Je suis coach certifiée, j'adore le café et les voyages 🌍" — Le visiteur s'en fiche. Il veut savoir ce que <em>tu fais pour lui</em>, pas qui tu es. Ta bio doit être centrée sur TON CLIENT, pas sur toi.</div>
+      <div class="step-body">"Je suis coach certifiée, j'adore le café et les voyages 🌍" — Le visiteur veut savoir ce que <em>tu fais pour lui</em>, pas qui tu es.</div>
     </div>
   </div>
 
@@ -1237,7 +1298,7 @@ body {
     <div class="step-num">E.02</div>
     <div class="step-content">
       <div class="step-title-s">Être trop vague sur la niche</div>
-      <div class="step-body">"J'aide les gens à réussir" ne veut rien dire. Qui exactement ? Réussir quoi ? En combien de temps ? <strong>La précision crée la connexion.</strong> Plus tu es spécifique, plus les bonnes personnes se sentent concernées.</div>
+      <div class="step-body">"J'aide les gens à réussir" ne veut rien dire. <strong>La précision crée la connexion.</strong></div>
     </div>
   </div>
 
@@ -1245,7 +1306,7 @@ body {
     <div class="step-num">E.03</div>
     <div class="step-content">
       <div class="step-title-s">Aucun appel à l'action</div>
-      <div class="step-body">Terminer sa bio sans dire quoi faire ensuite, c'est laisser le visiteur dans le vide. Il ne va pas chercher tout seul. <em>Dis-lui exactement quoi faire.</em> Un seul CTA. Simple. Direct.</div>
+      <div class="step-body">Terminer sa bio sans dire quoi faire ensuite, c'est laisser le visiteur dans le vide. <em>Dis-lui exactement quoi faire.</em></div>
     </div>
   </div>
 
@@ -1253,7 +1314,7 @@ body {
     <div class="step-num">E.04</div>
     <div class="step-content">
       <div class="step-title-s">Trop d'emojis et de hashtags</div>
-      <div class="step-body">Une bio avec 15 emojis et 8 hashtags ressemble à un spam. Les emojis doivent être fonctionnels (guider l'œil, séparer les idées) — pas décoratifs. Les hashtags en bio ne boostent plus rien en 2025.</div>
+      <div class="step-body">Une bio avec 15 emojis et 8 hashtags ressemble à un spam. Les hashtags en bio ne boostent plus rien en 2025.</div>
     </div>
   </div>
 
@@ -1261,7 +1322,7 @@ body {
     <div class="step-num">E.05</div>
     <div class="step-content">
       <div class="step-title-s">Négliger le champ "Nom"</div>
-      <div class="step-body">Le champ en gras sur ton profil est indexé par la recherche. Si tu y mets juste ton prénom, tu rates une opportunité de visibilité. <strong>Exemple : "Nadia • Revenus en ligne"</strong> — quelqu'un qui cherche "revenus en ligne" peut te trouver.</div>
+      <div class="step-body">Le champ en gras est indexé par la recherche. <strong>Exemple : "Nadia • Revenus en ligne"</strong></div>
     </div>
   </div>
 
@@ -1269,7 +1330,7 @@ body {
     <div class="step-num">E.06</div>
     <div class="step-content">
       <div class="step-title-s">Ne jamais tester ni optimiser</div>
-      <div class="step-body">Ta bio a été écrite il y a 2 ans et tu ne l'as jamais changée depuis. Les mots qui convertissent évoluent. Ton offre évolue. Ton audience évolue. <em>Ta bio doit évoluer avec eux.</em></div>
+      <div class="step-body">Ta bio a été écrite il y a 2 ans et jamais changée. <em>Ta bio doit évoluer avec ton offre et ton audience.</em></div>
     </div>
   </div>
 
@@ -1277,14 +1338,13 @@ body {
     <div class="step-num">E.07</div>
     <div class="step-content">
       <div class="step-title-s">Copier la bio d'une autre créatrice</div>
-      <div class="step-body">S'inspirer, oui. Copier, non. Une bio copiée ne résonne pas parce qu'elle ne parle pas <em>ta</em> langue, à <em>ton</em> audience, avec <em>ta</em> proposition de valeur unique. Les gens le sentent instinctivement.</div>
+      <div class="step-body">S'inspirer, oui. Copier, non. Une bio copiée ne résonne pas parce qu'elle ne parle pas <em>ta</em> langue, à <em>ton</em> audience.</div>
     </div>
   </div>
 
-  <div class="callout-gold" style="margin-top: 32px;">
+  <div class="callout-gold" style="margin-top:32px">
     Lis ta bio à voix haute. Si ça sonne comme un robot, un CV, ou une pub de supermarché — réécris. Ta bio doit sonner comme toi, en version la plus claire et la plus directe possible.
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1294,82 +1354,28 @@ body {
   <div class="fiche-bg-num">06</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 06 — Checklist</div>
-    <div class="fiche-title">
-      La checklist<br>
-      <em>finale</em>
-    </div>
-    <div class="fiche-citation">
-      « Avant de publier quoi que ce soit, ta bio doit passer ce test. Sans exception. »
-    </div>
+    <div class="fiche-title">La checklist<br><em>finale</em></div>
+    <div class="fiche-citation">« Avant de publier quoi que ce soit, ta bio doit passer ce test. Sans exception. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="body-text">Passe ta bio en revue point par point. Si tu coches tout — tu es prête. Si un point manque — tu sais quoi corriger.</div>
 
-  <div class="checklist" style="margin-top: 24px;">
+  <div class="checklist" style="margin-top:24px">
     <div class="checklist-header">✅ Checklist Bio — Instagram & TikTok</div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>La première ligne dit clairement à qui je parle</strong> — une personne précise, pas tout le monde</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Je promets un résultat concret</strong>, pas une méthode ou un processus</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Il y a un élément de preuve ou de crédibilité</strong> — chiffre, transformation, expérience</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Il y a un seul appel à l'action</strong>, clair et direct, avec un verbe d'action</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Le champ "Nom" contient un mot-clé</strong> de ma niche en plus de mon prénom</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Je n'utilise pas de mots vides</strong> : passionnée, inspirante, bienveillante, authenticité</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Les emojis sont fonctionnels</strong>, pas décoratifs — maximum 1 par ligne</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Aucun hashtag</strong> dans la bio (inutile en 2025)</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Quelqu'un qui ne me connaît pas</strong> comprend en 5 secondes ce que je fais et pour qui</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Le lien en bio mène à UNE page</strong> avec UN objectif principal</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Ma bio est adaptée à la plateforme</strong> — Instagram (150 car.) vs TikTok (80 car.)</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Ma bio est cohérente avec mon contenu</strong> — la promesse que je fais, je la tiens dans mes posts</div>
-    </div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>La première ligne dit clairement à qui je parle</strong> — une personne précise, pas tout le monde</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Je promets un résultat concret</strong>, pas une méthode ou un processus</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Il y a un élément de preuve ou de crédibilité</strong> — chiffre, transformation, expérience</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Il y a un seul appel à l'action</strong>, clair et direct, avec un verbe d'action</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Le champ "Nom" contient un mot-clé</strong> de ma niche en plus de mon prénom</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Je n'utilise pas de mots vides</strong> : passionnée, inspirante, bienveillante, authenticité</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Les emojis sont fonctionnels</strong>, pas décoratifs — maximum 1 par ligne</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Aucun hashtag</strong> dans la bio (inutile en 2025)</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Quelqu'un qui ne me connaît pas</strong> comprend en 5 secondes ce que je fais et pour qui</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Le lien en bio mène à UNE page</strong> avec UN objectif principal</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Ma bio est adaptée à la plateforme</strong> — Instagram (150 car.) vs TikTok (80 car.)</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Ma bio est cohérente avec mon contenu</strong> — la promesse que je fais, je la tiens dans mes posts</div></div>
   </div>
 
   <div class="section-title">Le processus d'optimisation continue</div>
@@ -1378,7 +1384,7 @@ body {
     <div class="step-num">01</div>
     <div class="step-content">
       <div class="step-title-s">Écris 3 versions différentes</div>
-      <div class="step-body">Avec trois angles différents : une centrée sur la douleur, une sur le résultat, une plus personnelle. Garde la meilleure — ou teste les trois.</div>
+      <div class="step-body">Avec trois angles : une centrée sur la douleur, une sur le résultat, une plus personnelle. Garde la meilleure — ou teste les trois.</div>
     </div>
   </div>
 
@@ -1386,7 +1392,7 @@ body {
     <div class="step-num">02</div>
     <div class="step-content">
       <div class="step-title-s">Teste pendant 2 à 4 semaines</div>
-      <div class="step-body">Observe : est-ce que le taux d'abonnement augmente après une visite de profil ? Est-ce que les DMs entrants changent en qualité ou en volume ?</div>
+      <div class="step-body">Observe : est-ce que le taux d'abonnement augmente ? Est-ce que les DMs entrants changent en qualité ou en volume ?</div>
     </div>
   </div>
 
@@ -1394,30 +1400,37 @@ body {
     <div class="step-num">03</div>
     <div class="step-content">
       <div class="step-title-s">Ajuste et recommence</div>
-      <div class="step-body">Ce qui marche aujourd'hui peut ne plus marcher dans 6 mois. <strong>Une bio optimisée est une bio qui évolue.</strong> Programme un audit bio mensuel dans ton agenda.</div>
+      <div class="step-body"><strong>Une bio optimisée est une bio qui évolue.</strong> Programme un audit bio mensuel dans ton agenda.</div>
     </div>
   </div>
 
-  <div style="margin-top: 40px; padding: 24px; border: 1px solid rgba(201,168,76,0.3); border-radius: 8px; background: rgba(201,168,76,0.05);">
-    <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: var(--black); line-height: 1.7;">
+  <div style="margin-top:40px;padding:24px;border:1px solid rgba(201,168,76,0.3);border-radius:8px;background:rgba(201,168,76,0.05)">
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--black);line-height:1.7">
       « Ta bio n'est pas une description. C'est une invitation. Elle dit : "hé toi, c'est exactement pour toi ici". Quand elle fait ça correctement — tout le reste devient plus facile. »
     </div>
   </div>
-
 </div>
 
 <!-- ===== CLOSING ===== -->
 <div class="closing-page">
   <div class="closing-eyebrow">Tu as maintenant toutes les clés</div>
   <div class="closing-title">
-    Maintenant,<br>
-    va réécrire<br>
-    <em>ta bio.</em>
+    Maintenant,<br>va réécrire<br><em>ta bio.</em>
   </div>
   <div class="closing-text">
     La structure. Les règles. Les erreurs à éviter. Les nuances Instagram vs TikTok. La checklist complète.<br><br>
     Tout est là. Il ne manque plus qu'une chose : que tu ouvres ton profil et que tu appliques.
   </div>
+
+  <!-- CTA vers Légendes -->
+  <div class="closing-cta-wrap">
+    <div class="closing-cta-label">Prochaine étape</div>
+    <a href="https://kcoaching02.github.io/BAO_LEGENDE/" class="closing-cta-btn" target="_blank">
+      Maîtriser tes légendes
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
   <div class="closing-brand">Brille & Vibre</div>
 </div>
 
